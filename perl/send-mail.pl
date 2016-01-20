@@ -1,9 +1,7 @@
 #!/usr/bin/perl
 ##########################################################
 # Script: send-mail.pl
-# Desc: Script de envÌo de correos.
-# Revisions:
-#	20150420 - pmunoz - Primera versiÛn del script.
+# Desc: Script de env√≠o de correos.
 ##########################################################
 
 use warnings;
@@ -19,7 +17,7 @@ sub send_mail {
 	# debig - integer
 
     my %args = (
-        from => 'devops.adoption.es@bbva.com',
+        from => 'test.mail@test.ma',
         to => '',
         cc => '',
         bcc => '',
@@ -54,7 +52,7 @@ sub send_mail {
     use Net::SMTP;
 
     # SMTP parameters
-    my $smtp_server = '192.168.99.10';
+    my $smtp_server = 'smtp.test.ma';
     my $smtp_port = 25;
     my $smtp_user = '';
     my $smtp_password = '';
@@ -86,7 +84,7 @@ sub send_mail {
     $smtp->quit;
 }
 
-send_mail(cc => ['pablo.munoz.orbananos.contractor@bbva.com'],
-          bcc => 'pablo.munoz.external@atos.net',
+send_mail(cc => ['dest1@dest.ma', 'dest2@dest.ma'],
+          bcc => 'dest3@dest.ma',
           subject => 'Correo de prueba',
-          body => 'Esto no es m·s que un correo de prueba');
+          body => 'Esto no es m√°s que un correo de prueba');
